@@ -29,6 +29,7 @@ config DEVKMEM
 	  kind of kernel debugging operations.
 	  When in doubt, say "N".
 
+
 config STALDRV
 	bool "Stallion multiport serial support"
 	depends on SERIAL_NONSTANDARD
@@ -40,6 +41,15 @@ config STALDRV
 	  questions.  Make sure to read <file:Documentation/serial/stallion.txt>
 	  in this case.  If you have never heard about all this, it's safe to
 	  say N.
+
+config FRANDOM
+	bool "/dev/frandom device support"
+	default y
+	help
+	  Say Y here if you want to support the /dev/frandom device. Frandom
+	  is a Linux kernel random number generator, which is 10-50 times faster 
+	  than what you get from Linux' built-in /dev/urandom.
+	  When in doubt, say "N"
 
 config SGI_SNSC
 	bool "SGI Altix system controller communication support"
