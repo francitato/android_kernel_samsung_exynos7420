@@ -6,6 +6,8 @@
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 as
  * published by the Free Software Foundation.
+ *
+ *  Copyright (c) 2014, NVIDIA CORPORATION.  All rights reserved.
  */
 
 #ifndef __ASM_ARM_PROCESSOR_H
@@ -113,5 +115,7 @@ static inline void prefetch(const void *ptr)
 #define HAVE_ARCH_PICK_MMAP_LAYOUT
 
 #endif
+
+#include <asm-generic/processor.h>
 
 #endif /* __ASM_ARM_PROCESSOR_H */
