@@ -378,7 +378,7 @@ static int max77843_fg_read_vfsoc(struct max77843_fuelgauge_data *fuelgauge)
 		return -1;
 	}
 
-	soc = fg_read_vfsoc(fuelgauge);
+	soc = ((data[1] * 100) + (data[0] * 100 / 256)) / 10;
 
 	return min(soc, 1000);
 }
