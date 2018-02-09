@@ -1736,19 +1736,7 @@ void msleep(unsigned int msecs)
 		timeout = schedule_timeout_uninterruptible(timeout);
 }
 
-/**
- * usleep - sleep safely even with waitqueue interruptions
- * @usecs: Time in microseconds to sleep for
- */
-void usleep(unsigned int usecs)
-{
-	unsigned long timeout = usecs_to_jiffies(usecs) + 1;
-
-	while (timeout)
-		timeout = schedule_timeout_uninterruptible(timeout);
-}
-
-EXPORT_SYMBOL(usleep);
+EXPORT_SYMBOL(msleep);
 
 /**
  * msleep_interruptible - sleep waiting for signals
@@ -1764,21 +1752,6 @@ unsigned long msleep_interruptible(unsigned int msecs)
 }
 
 EXPORT_SYMBOL(msleep_interruptible);
-
-/**
- * usleep_interruptible - sleep waiting for signals
- * @usecs: Time in microseconds to sleep for
- */
-unsigned long usleep_interruptible(unsigned int usecs)
-{
-	unsigned long timeout = usecs_to_jiffies(usecs) + 1;
-
-	while (timeout && !signal_pending(current))
-		timeout = schedule_timeout_interruptible(timeout);
-	return jiffies_to_usecs(timeout);
-}
-
-EXPORT_SYMBOL(usleep_interruptible);
 
 static int __sched do_usleep_range(unsigned long min, unsigned long max)
 {
