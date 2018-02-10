@@ -194,7 +194,7 @@ struct cs_dbs_tuners {
 	unsigned int twostep_threshold;
 	unsigned int min_load;
 	unsigned int twostep_counter;
-    u64 twostep_time;
+	u64 twostep_time;
 };
 
 /* Common Governer data across policies */
