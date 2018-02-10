@@ -227,7 +227,7 @@ nfqnl_flush(struct nfqnl_instance *queue, nfqnl_cmpfn cmpfn, unsigned long data)
 	spin_unlock_bh(&queue->lock);
 }
 
-static void
+static int
 nfqnl_zcopy(struct sk_buff *to, struct sk_buff *from, int len, int hlen)
 {
 	int i, j = 0;
