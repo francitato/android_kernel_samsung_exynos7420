@@ -345,3 +345,10 @@ config FOTA_LIMIT
 	help
 	  Add sysfs to notify limit information to recovery module
 	  /sys/power/fota_limit
+
+config SPEEDUP_KEYRESUME
+	bool "Speed up late resume"
+	depends on SUSPEND
+	default y
+	---help---
+	  Speed up system resume
